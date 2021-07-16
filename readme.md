@@ -6,4 +6,4 @@
 
 <img src='./v0.0.0.2.png' width='250'>
 
-Front end - Axios, HTML
+Front end - Axios, HTML, CSS, React
