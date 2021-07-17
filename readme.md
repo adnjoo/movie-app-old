@@ -1,6 +1,6 @@
 ## readme
 
-[Link](https://adnjoo.github.io/movie-app-frontend/)
+## [Link](https://adnjoo.github.io/movie-app-frontend/)
 
 > This app allows you to save your favorite movies.
 
