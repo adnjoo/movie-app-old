@@ -17,7 +17,7 @@ APIs used - [TMDB](https://www.themoviedb.org/)
 
 steps:
 
-port to react
+~~porting to react~~
 
 add user login
 

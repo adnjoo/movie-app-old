@@ -5,6 +5,7 @@ import axios from "axios";
 const Movies = (props) => (
   <tr>
     <td>{props.movies.name}</td>
+    <img width='100' src='https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png'></img>
   </tr>
 )
 
@@ -14,16 +15,13 @@ export default class Movielist extends Component {
     this.state = {movies: []}
   }
 
-  //componentDidMount() is invoked immediately after a component is
-  //mounted (inserted into the tree). Initialization that requires
-  //DOM nodes should go here.
-  //https://reactjs.org/docs/react-component.html#componentdidmount
-
   componentDidMount() {
     axios.get('https://andrew-movie-app.herokuapp.com/')
     .then((response)=>{
       this.setState({movies: response.data});
     })
+    //make another axios call to TMDB to get images
+    .then()
     .catch((error)=>{
       console.log(error);
     });

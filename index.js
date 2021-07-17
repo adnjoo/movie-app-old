@@ -1,6 +1,3 @@
-//tmdb api key  = '7aa9ec6612579e4bfd39288619de239c'
-//debug - console.log("index.js loaded");
-
 //declare variables
 let movies = [];
 let addMovieButton = document.getElementById("button");
@@ -8,15 +5,12 @@ let movielist = document.querySelector("#movielist");
 let movielist1 = document.querySelector("#movielist1");
 let input = document.querySelector("#input");
 
-
 let APIkey = "7aa9ec6612579e4bfd39288619de239c";
 let tooltip = document.getElementById("tooltip");
 
-//local
-// let url = "http://localhost:4001/";
+// let url = "http://localhost:4001/"; //local
 
-//heroku
-let url = "https://andrew-movie-app.herokuapp.com/";
+let url = "https://andrew-movie-app.herokuapp.com/"; //heroku
 
 //function to get all movies
 let fetchMovies = () => {

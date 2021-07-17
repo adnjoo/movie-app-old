@@ -1,0 +1,10 @@
+table,
+thead,
+td,
+img {
+  outline: 1px solid red;
+}
+
+img {
+  width: 50px;
+}
