@@ -71,7 +71,10 @@ let fetchMovies = () => {
         movielist1.appendChild(x);
       }
     }, 300);
-  });
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
 };
 
 fetchMovies();
