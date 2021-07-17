@@ -12,6 +12,7 @@ Front end - Axios, HTML, CSS, React
 
 APIs used - [TMDB](https://www.themoviedb.org/)
 
+[Backend Github](https://github.com/adnjoo/movie-app-backend)
 
 steps:
 
