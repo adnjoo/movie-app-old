@@ -11,3 +11,16 @@
 Front end - Axios, HTML, CSS, React
 
 APIs used - [TMDB](https://www.themoviedb.org/)
+
+
+
+
+steps:
+
+port to react
+
+add user login
+
+add feed
+
+add ratings
