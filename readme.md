@@ -24,3 +24,11 @@ add user login
 add feed
 
 add ratings
+
+
+
+<!-- inspiration: -->
+<!-- https://github.com/topics/movie-app -->
+<!-- https://github.com/arghac14/Cinemy -->
+<!-- https://github.com/tacticaltofu/reddit-clone -->
+<!-- https://material-ui.com/ -->
