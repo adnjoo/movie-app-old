@@ -36,6 +36,7 @@ let fetchMovies = () => {
           editMovie(node.id, node.value);
         }
       });
+      //tailwind classes
       node.classList.add('bg-gradient-to-r', 'from-green-400', 'to-blue-500')
       btn.innerHTML = "X";
       btn.classList.add("buttonfield");

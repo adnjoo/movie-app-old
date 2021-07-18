@@ -14,17 +14,7 @@ APIs used - [TMDB](https://www.themoviedb.org/)
 
 [Backend Github](https://github.com/adnjoo/movie-app-backend)
 
-steps:
-
-~~porting to react~~
-
-add user login
-
-add feed
-
-add ratings
-
-
+> work in progress
 
 <!-- inspiration: -->
 <!-- https://github.com/topics/movie-app -->

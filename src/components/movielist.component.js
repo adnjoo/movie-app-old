@@ -25,7 +25,7 @@ export default class Movielist extends Component {
       for(let i in response.data){
         this.getImage(response.data[i].name)
       }
-      // console.log(this.state.movies)
+      console.log(this.state)
     })
     .catch((error)=>{
       console.log(error);
@@ -37,7 +37,7 @@ export default class Movielist extends Component {
     .then((res)=>{
       // console.log(res.data.results);
       let stateCopy = Object.assign({},this.state)
-      console.log(stateCopy)
+      // console.log(stateCopy)
       let result = res.data.results[0];
       let poster = `https://image.tmdb.org/t/p/original/${result.poster_path}`;
       let attach = stateCopy.movies.find((e) => e.name === movie);
