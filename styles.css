@@ -72,7 +72,7 @@ input {
 #tooltip{
   margin: 20px auto auto auto;
   /* height:150px; */
-  background-color: beige;
+  /* background-color: beige; */
   width:80%;
   font-size: 1.2rem;
 }
