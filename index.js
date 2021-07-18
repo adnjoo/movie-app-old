@@ -138,3 +138,11 @@ addMovieButton.addEventListener("click", () => {
   // console.log('test')
   getMovie(input.value);
 });
+
+console.log('test')
+
+
+M.toast({
+  html: `<span>try loading <a href='https://andrew-movie-app.herokuapp.com/'> heroku </a> if nothing pops up</span>`,
+  displayLength: 4000
+})
