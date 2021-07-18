@@ -28,7 +28,7 @@ let fetchMovies = () => {
       node.classList.add("textfield2");
       node.id = res.data[i].id;
       node.contentEditable = true;
-      node.value = `${res.data[i].name} `;
+      node.value = `${res.data[i].name}`;
       //listen for enter key
       node.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
@@ -57,6 +57,9 @@ let fetchMovies = () => {
       for (let i in movies) {
         let x = document.createElement("img");
         x.setAttribute("src", movies[i].src);
+
+        //tailwind classes
+        x.classList.add('w-1/4','md:w-1/6','inline-flex')
         //on mouse click, show movie text
         x.addEventListener("click", () => {
           let attach = movies.find((e) => e.src == movies[i].src);
@@ -139,10 +142,18 @@ addMovieButton.addEventListener("click", () => {
   getMovie(input.value);
 });
 
-console.log('test')
+// M.toast({
+//   html: `<span>try loading <a href='https://andrew-movie-app.herokuapp.com/'> heroku </a> if nothing pops up</span>`,
+//   displayLength: 4000
+// })
 
+//alert
+let alert = document.getElementById('alert')
 
-M.toast({
-  html: `<span>try loading <a href='https://andrew-movie-app.herokuapp.com/'> heroku </a> if nothing pops up</span>`,
-  displayLength: 4000
+// setTimeout(()=>{
+//   alert.setAttribute('style','display:none')
+// },6000)
+
+document.getElementById('close-alert').addEventListener('click',()=>{
+  alert.setAttribute('style','display:none')
 })
