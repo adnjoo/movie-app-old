@@ -14,9 +14,6 @@ APIs used - [TMDB](https://www.themoviedb.org/)
 
 [Backend Github](https://github.com/adnjoo/movie-app-backend)
 
-Work-flow:
-
-Trello
+Work-flow - Trello (kanban/processes), Figma (mockups)
 
 > work in progress
-
