@@ -47,7 +47,10 @@ header {
 
 #movielist1 {
   margin-top: 10px;
+  margin-left:10px;
+  margin-right:10px;
 }
+
 
 form {
   margin-bottom: 20px;

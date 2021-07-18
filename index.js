@@ -61,7 +61,7 @@ let fetchMovies = () => {
         x.setAttribute("src", movies[i].src);
 
         //tailwind classes
-        x.classList.add('w-1/4','md:w-1/6','inline-flex')
+        x.classList.add('h-1/3','inline-flex')
         //on mouse click, show movie text
         x.addEventListener("click", () => {
           let attach = movies.find((e) => e.src == movies[i].src);
