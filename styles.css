@@ -37,7 +37,7 @@ img:hover {
 .textfield2 {
   display: inline-block;
   width: 60% !important;
-  background-color: beige !important;
+  /* background-color: beige !important; */
 }
 
 header {
@@ -91,3 +91,8 @@ input {
   }
 }
 
+
+#close-alert {
+  /* make close button far right  */
+  margin-left: auto;
+}

@@ -36,6 +36,7 @@ let fetchMovies = () => {
           editMovie(node.id, node.value);
         }
       });
+      node.classList.add('bg-gradient-to-r', 'from-green-400', 'to-blue-500')
       btn.innerHTML = "X";
       btn.classList.add("buttonfield");
       btn.id = res.data[i].id;
@@ -150,9 +151,9 @@ addMovieButton.addEventListener("click", () => {
 //alert
 let alert = document.getElementById('alert')
 
-// setTimeout(()=>{
-//   alert.setAttribute('style','display:none')
-// },6000)
+setTimeout(()=>{
+  alert.setAttribute('style','display:none')
+},8000)
 
 document.getElementById('close-alert').addEventListener('click',()=>{
   alert.setAttribute('style','display:none')
