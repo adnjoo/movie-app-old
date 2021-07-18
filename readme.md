@@ -14,10 +14,9 @@ APIs used - [TMDB](https://www.themoviedb.org/)
 
 [Backend Github](https://github.com/adnjoo/movie-app-backend)
 
+Work-flow:
+
+Trello
+
 > work in progress
 
-<!-- inspiration: -->
-<!-- https://github.com/topics/movie-app -->
-<!-- https://github.com/arghac14/Cinemy -->
-<!-- https://github.com/tacticaltofu/reddit-clone -->
-<!-- https://material-ui.com/ -->
