@@ -10,6 +10,8 @@
 <img src='./v0.0.0.3.png' width='250'>
 </a><br /><br />
 
+Stack: PERN
+
 Front end - Axios, HTML, CSS, React
 
 APIs used - [TMDB](https://www.themoviedb.org/)
