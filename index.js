@@ -39,7 +39,7 @@ let fetchMovies = () => {
       //tailwind classes
       node.classList.add('bg-gradient-to-r', 'from-green-400', 'to-blue-500','text-xl','md:text-2xl','w-10/12')
       btn.innerHTML = "X";
-      btn.classList.add("buttonfield");
+      btn.classList.add("buttonfield",'transform','transition','duration-700','hover:scale-125');
       btn.id = res.data[i].id;
       btn.addEventListener("click", () => {
         // console.log(btn.id)
