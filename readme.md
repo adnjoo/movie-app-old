@@ -12,7 +12,7 @@
 
 Stack: PERN
 
-Front end - Axios, HTML, CSS, React
+Front end - Axios, HTML, CSS, React, Tailwind
 
 APIs used - [TMDB](https://www.themoviedb.org/)
 
