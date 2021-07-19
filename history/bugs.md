@@ -1,0 +1,1 @@
+- get data from heroku, before pulling images from TMDB

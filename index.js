@@ -37,7 +37,7 @@ let fetchMovies = () => {
         }
       });
       //tailwind classes
-      node.classList.add('bg-gradient-to-r', 'from-green-400', 'to-blue-500')
+      node.classList.add('bg-gradient-to-r', 'from-green-400', 'to-blue-500','text-xl','md:text-2xl','w-10/12')
       btn.innerHTML = "X";
       btn.classList.add("buttonfield");
       btn.id = res.data[i].id;
@@ -61,7 +61,7 @@ let fetchMovies = () => {
         x.setAttribute("src", movies[i].src);
 
         //tailwind classes
-        x.classList.add('h-1/3','inline-flex')
+        x.classList.add('h-1/4','inline-flex','md:h-1/3')
         //on mouse click, show movie text
         x.addEventListener("click", () => {
           let attach = movies.find((e) => e.src == movies[i].src);
@@ -69,7 +69,8 @@ let fetchMovies = () => {
         });
         movielist1.appendChild(x);
       }
-    }, 300);
+      // increase setTimeout time to allow for fetch posters from TMDB
+    }, 200);
   })
   .catch((err)=>{
     console.log(err)
@@ -78,7 +79,7 @@ let fetchMovies = () => {
 
 fetchMovies();
 
-//get movie image from TMDB
+//get movie poster from TMDB
 let getImage = (movie) => {
   axios
     .get(

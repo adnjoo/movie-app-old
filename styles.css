@@ -35,8 +35,8 @@ img:hover {
 }
 
 .textfield2 {
-  display: inline-block;
-  width: 60% !important;
+  /* display: inline-block; */
+  /* width: 60%; */
   /* background-color: beige !important; */
 }
 
@@ -98,4 +98,8 @@ input {
 #close-alert {
   /* make close button far right  */
   margin-left: auto;
+}
+
+.buttonfield {
+
 }
