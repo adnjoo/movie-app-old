@@ -70,7 +70,7 @@ let fetchMovies = () => {
         movielist1.appendChild(x);
       }
       // increase setTimeout time to allow for fetch posters from TMDB
-    }, 200);
+    }, 350);
   })
   .catch((err)=>{
     console.log(err)
