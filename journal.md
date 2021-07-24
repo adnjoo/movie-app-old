@@ -9,4 +9,4 @@ enter keydown on input field adds a new movie. replaced click event with mouseov
 
 to-do: 
 
-~~hover over img shows movie info~~
+try & get correct movie
