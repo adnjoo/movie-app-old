@@ -12,6 +12,14 @@ let tooltip = document.getElementById("tooltip");
 
 let url = "https://andrew-movie-app.herokuapp.com/"; //heroku
 
+//add event listener to input
+input.addEventListener("keypress",(e)=>{
+  if(e.key==="Enter"){
+    getMovie(input.value)
+    input.value=''
+  }
+})
+
 //function to get all movies
 let fetchMovies = () => {
   //clear movielist

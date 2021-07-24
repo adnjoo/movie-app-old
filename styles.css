@@ -60,7 +60,7 @@ form {
 footer {
   text-align: center;
   padding: 20px;
-  display: none;
+  display: block;
 }
 
 a {

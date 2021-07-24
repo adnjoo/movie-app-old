@@ -8,3 +8,8 @@ img {
 img {
   width: 100px;
 }
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

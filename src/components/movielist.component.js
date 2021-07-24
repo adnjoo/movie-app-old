@@ -4,17 +4,47 @@ import axios from "axios";
 
 let APIkey = "7aa9ec6612579e4bfd39288619de239c";
 
-const Movies = (props) => (
-  <tr>
-    <td>{props.movies.name}</td>
-    <img src={props.movies.src}></img>
-  </tr>
-)
+class Movies extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      value: '',
+      name: props.movies.name
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event){
+    this.setState({name: event.target.value})
+  }
+  render() {
+    return (
+      <tr className='space-x-2'>
+      <td className='inline-block'><input
+       onChange= {this.handleChange}
+       value={this.state.name}></input></td>
+      <a className='inline-block border-2' href='/'>X</a>
+      <img className='inline-block' src={this.props.movies.src} alt='poster'></img>
+    </tr>
+    )
+  }
+}
+
+// const Movies = (props) => (
+//   <tr className='space-x-2'>
+//     <td className='inline-block'><input
+//      onChange={()=>console.log('test')}
+//      value={props.movies.name}></input></td>
+//     <a className='inline-block border-2' href='/'>X</a>
+//     <img className='inline-block' src={props.movies.src} alt='poster'></img>
+//   </tr>
+// )
 
 export default class Movielist extends Component {
   constructor(props){
     super(props);
-    this.state = {movies: []}
+    this.state = {
+      movies: []
+    }
   }
 
   componentDidMount() {
@@ -60,6 +90,7 @@ export default class Movielist extends Component {
       );
     });
   }
+
 
   render() {
     return (
