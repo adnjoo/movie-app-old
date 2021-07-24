@@ -70,8 +70,8 @@ let fetchMovies = () => {
 
         //tailwind classes
         x.classList.add('h-1/4','inline-flex','md:h-1/3')
-        //on mouse click, show movie text
-        x.addEventListener("click", () => {
+        //on mouse click/mouseover, show movie text
+        x.addEventListener("mouseover", () => {
           let attach = movies.find((e) => e.src == movies[i].src);
           tooltip.innerHTML = attach.overview;
         });
