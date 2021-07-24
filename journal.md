@@ -4,9 +4,9 @@ installed [tailwind in react folder](https://tailwindcss.com/docs/guides/create-
 
 2021-07-23
 
-enter keydown on input field adds a new movie
+enter keydown on input field adds a new movie. replaced click event with mouseover to hover for movie info.
 
 
 to-do: 
 
-hover over img shows movie info
+~~hover over img shows movie info~~
