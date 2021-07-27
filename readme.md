@@ -2,9 +2,7 @@
 
 <!-- ## [Link](https://adnjoo.github.io/movie-app/) -->
 
-> This app allows you to save your favorite movies.
->
-> work in progress
+> This app allows helps you save your favorite movies.
 
 <a href='https://adnjoo.github.io/movie-app/'>
 <img src='./v0.0.0.3.png' width='250'>
