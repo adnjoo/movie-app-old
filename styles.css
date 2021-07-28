@@ -23,7 +23,7 @@ img {
 
 
 img:hover {
-  transform: scale(1.05)
+  transform: scale(1.08)
 }
 
 .textfield {
@@ -32,12 +32,6 @@ img:hover {
   float: center;
   width: 60%;
   background-color: beige;
-}
-
-.textfield2 {
-  /* display: inline-block; */
-  /* width: 60%; */
-  /* background-color: beige !important; */
 }
 
 header {
@@ -100,6 +94,8 @@ input {
   margin-left: auto;
 }
 
-.buttonfield {
 
+.posterContainer {
+  display: inline-block;
+  overflow: hidden;
 }

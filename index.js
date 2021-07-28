@@ -65,9 +65,10 @@ let fetchMovies = () => {
 
     setTimeout(() => {
       for (let i in movies) {
+        let w = document.createElement('div')
+        w.classList.add('posterContainer')
         let x = document.createElement("img");
         x.setAttribute("src", movies[i].src);
-
         //tailwind classes
         x.classList.add('h-1/4','inline-flex','md:h-1/3')
         //on mouse click, show movie text
@@ -75,7 +76,8 @@ let fetchMovies = () => {
           let attach = movies.find((e) => e.src == movies[i].src);
           tooltip.innerHTML = attach.overview;
         });
-        movielist1.appendChild(x);
+        w.appendChild(x);
+        movielist1.appendChild(w);
       }
       // increase setTimeout time to allow for fetch posters from TMDB
     }, 350);
