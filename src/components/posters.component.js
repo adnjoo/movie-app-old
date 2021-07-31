@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {useEffect,  Component } from "react";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 
@@ -12,7 +12,16 @@ class Poster extends React.Component {
     }
   }
 
+  useEffect(){
+    console.log('test')
+  }
+
   render () {
+    if(!this.state.src){
+      return (
+        <div>empty</div>
+      )
+    }
     return (
       <img
       src={this.state.src}
@@ -27,7 +36,6 @@ class Poster extends React.Component {
 class Posters extends React.Component {
   constructor(props){
     super(props)
-
     this.moviePosters = this.moviePosters.bind(this);
   }
 
