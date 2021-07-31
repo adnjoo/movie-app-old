@@ -42,6 +42,7 @@ export default class Movielist extends Component {
     };
   }
 
+  //when component mounts we will make axios request
   componentDidMount() {
     axios
       .get("https://andrew-movie-app.herokuapp.com/")
@@ -91,12 +92,13 @@ export default class Movielist extends Component {
     return (
       <div>
         <Container className='mycontainer'>
-          <h1 class='text-center fs-2'>My movie list</h1>
+          <h1 className='text-center fs-2'>My movie list</h1>
           <div className="marginauto border">
             <div>{this.movieList()}</div>
           </div>
           <Posters
           {...this.state}
+          // key={i}
           />
         </Container>
       </div>
