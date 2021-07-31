@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 import { Container } from "react-bootstrap";
+import Posters from './posters.component'
 
 let APIkey = "7aa9ec6612579e4bfd39288619de239c";
 
@@ -80,6 +81,7 @@ export default class Movielist extends Component {
   }
 
   movieList() {
+    // console.log(this.state)
     return this.state.movies.map((e) => {
       return <Movies movies={e} />;
     });
@@ -93,6 +95,9 @@ export default class Movielist extends Component {
           <div className="marginauto border">
             <div>{this.movieList()}</div>
           </div>
+          <Posters
+          {...this.state}
+          />
         </Container>
       </div>
     );
