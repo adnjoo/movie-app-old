@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 
 class Poster extends React.Component {
   constructor(props){
+    // console.log(props)
     super(props)
 
     this.state = {
@@ -16,6 +17,7 @@ class Poster extends React.Component {
       <img
       src={this.state.src}
       className='d-inline'
+      style={{width:'150px'}}
       />
     )
   }
@@ -30,6 +32,7 @@ class Posters extends React.Component {
   }
 
   moviePosters(){
+    // console.log(this.props)
     return this.props.movies.map((e)=>{
       return <Poster movies={e} />
     })
@@ -37,8 +40,7 @@ class Posters extends React.Component {
 
   render(){
     return(
-      <div>
-
+      <div className='text-center'>
         {this.moviePosters()}
         </div>
     )

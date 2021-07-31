@@ -81,7 +81,7 @@ export default class Movielist extends Component {
   }
 
   movieList() {
-    // console.log(this.state)
+    console.log(this.state)
     return this.state.movies.map((e) => {
       return <Movies movies={e} />;
     });
@@ -90,9 +90,9 @@ export default class Movielist extends Component {
   render() {
     return (
       <div>
-        <Container className='mycontainer'>
+        <Container className='mycontainer border'>
           <h1 class='text-center fs-2'>My movie list</h1>
-          <div className="marginauto border">
+          <div className="marginauto">
             <div>{this.movieList()}</div>
           </div>
           <Posters
