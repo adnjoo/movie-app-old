@@ -1,15 +1,20 @@
-table,
-thead,
-td,
-img {
-  outline: 1px solid red;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 img {
   width: 100px;
 }
 
+.mycontainer {
+  margin:auto;
+  width:80%;
+}
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.centertext {
+  text-align: center  ;
+}
+
+.marginauto {
+  margin:auto;
+}
