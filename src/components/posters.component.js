@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Container } from "react-bootstrap";
+// import axios from "axios";
+// import { Container } from "react-bootstrap";
+
 
 class Poster extends React.Component {
   constructor(props){
     // console.log(props)
     super(props)
-
+    // console.log(props, new Date().toISOString())
     this.state = {
       src: props.movies.src
     }
   }
 
-  render () {
+  render() {
     return (
       <img
       src={this.state.src}
@@ -25,9 +26,11 @@ class Poster extends React.Component {
 
 
 class Posters extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-
+    this.state = {
+      value: ''
+    }
     this.moviePosters = this.moviePosters.bind(this);
   }
 
@@ -42,9 +45,11 @@ class Posters extends React.Component {
     return(
       <div className='text-center'>
         {this.moviePosters()}
-        </div>
+      </div>
     )
   }
 }
 
 export default Posters;
+
+
