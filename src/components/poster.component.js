@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 const Poster = (props) => {
   let [src, setSrc] = useState('');
   useEffect(()=>{
-    // console.log('testy')
+    function myfunction (){
+      // console.log('testy')
     if(props.props == null){
       // console.log('null')
       return
@@ -11,13 +12,15 @@ const Poster = (props) => {
       // console.log(props.props.src)
       setSrc(props.props.src)
     }
-
+    }
+    myfunction()
   })
   return (
     <div style={{display:'inline'}} >
       <img
       src={src}
       width='250'
+      alt=''
       />
     </div>
   );

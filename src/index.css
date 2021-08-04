@@ -18,3 +18,14 @@ img {
 .marginauto {
   margin:auto;
 }
+
+.movieListInput {
+  width:40%;
+  /* min-width: 170px; */
+}
+
+@media only screen and (max-width: 600px) {
+  .movieListInput {
+    width: 80%;
+  }
+}
