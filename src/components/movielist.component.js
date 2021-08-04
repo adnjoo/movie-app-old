@@ -2,9 +2,10 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 import { Container } from "react-bootstrap";
-import Posters from './posters.component'
+import Poster from './poster.component'
 
 let APIkey = "7aa9ec6612579e4bfd39288619de239c";
+
 
 class Movies extends React.Component {
   constructor(props) {
@@ -14,11 +15,15 @@ class Movies extends React.Component {
       name: props.movies.name,
     };
     this.handleChange = this.handleChange.bind(this);
-
   }
-  handleChange(event) {
-    this.setState({ name: event.target.value });
+  handleChange(e) {
+    this.setState({ name: e.target.value });
   }
+  handleKeyDown = (e) => {
+    if(e.key==='Enter'){
+      console.log('enter pressed')
+    }
+  } 
   render() {
     return (
       <div className='mx-auto text-center '>
@@ -26,13 +31,13 @@ class Movies extends React.Component {
         className='text-center'
         onChange={this.handleChange}
         value={this.state.name}
+        onKeyDown={this.handleKeyDown}
         >
         </input>
       </div>
     );
   }
 }
-
 
 export default class Movielist extends Component {
   constructor(props) {
@@ -42,7 +47,6 @@ export default class Movielist extends Component {
     };
   }
 
-  //when component mounts we will make axios request
   componentDidMount() {
     axios
       .get("https://andrew-movie-app.herokuapp.com/")
@@ -52,7 +56,7 @@ export default class Movielist extends Component {
         for (let i in response.data) {
           this.getImage(response.data[i].name);
         }
-        console.log(this.state);
+        // console.log(this.state);
       })
       .catch((error) => {
         console.log(error);
@@ -82,24 +86,29 @@ export default class Movielist extends Component {
   }
 
   movieList() {
-    console.log(this.state)
+    // console.log(this.state)
     return this.state.movies.map((e) => {
       return <Movies movies={e} />;
     });
+  }
+
+  posterList(){
+    return this.state.movies.map((e)=>{
+      return <Poster props={e} />
+    })
   }
 
   render() {
     return (
       <div>
         <Container className='mycontainer border'>
-          <h1 class='text-center fs-2'>My movie list</h1>
+          <h1 className='text-center fs-2'>My movie list</h1>
           <div className="marginauto">
             <div>{this.movieList()}</div>
           </div>
-          <Posters
-          {...this.state}
-          // key={i}
-          />
+          <div>
+            <div id='posters' className='my-3' style={{textAlign:"center"}} >{this.posterList()}</div>
+          </div>
         </Container>
       </div>
     );
