@@ -1,10 +1,11 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 import Poster from "./poster.component";
 import Inputfield from "./inputfield.component";
 import Movie from "./movie.component";
+import HerokuAlert from './helperfunctions.component'
 
 let apiKey = "7aa9ec6612579e4bfd39288619de239c";
 let herokuURL = "https://andrew-movie-app.herokuapp.com/";
@@ -34,7 +35,7 @@ class Movielist extends Component {
       for (let i in response.data) {
         this.getImage(response.data[i].name);
       }
-      console.log('state of movies', this.state.movies)
+      // console.log('state of movies', this.state.movies)
     });
   }
 
@@ -47,7 +48,7 @@ class Movielist extends Component {
         // console.log(res)
         let stateCopy = Object.assign({}, this.state);
         //if unable to find the movie we will return the no poster image
-        if(res.data.results.length==0){
+        if(res.data.results.length===0){
           let attach = stateCopy.movies.find((e) => e.name === movie);
           // console.log('attach is', attach)
           attach.src= 'https://raw.githubusercontent.com/adnjoo/movie-app/main/assets/no-poster.jpeg'
@@ -138,10 +139,11 @@ class Movielist extends Component {
   activateLasers(){
     console.log(this.state)
   }
-
+  
   render() {
     return (
       <div>
+        <HerokuAlert/>
         <Container className="mycontainer border my-3">
           <h1 className="text-center fs-2">My movie list</h1>
           <div className="">
