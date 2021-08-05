@@ -32,7 +32,7 @@ const Movie = (props) => {
       <input
         className="text-center movieListInput"
         onChange={handleChange}
-        value={name}
+        defaultValue={name}
         onKeyDown={handleKeyDown}
       ></input>
       <button
