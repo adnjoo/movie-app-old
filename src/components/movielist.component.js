@@ -20,6 +20,7 @@ class Movielist extends Component {
     this.getMovies = this.getMovies.bind(this);
     this.addMovie = this.addMovie.bind(this);
     this.deleteMovie = this.deleteMovie.bind(this);
+    this.editName = this.editName.bind(this);
   }
 
   componentDidMount() {
@@ -54,8 +55,14 @@ class Movielist extends Component {
       });
   }
 
-  editName(name){
-    console.log(this.state)
+  editName(name, newname, id){
+    // edit state but dont get movies with axios
+    let stateCopy = Object.assign({}, this.state);
+    // console.log(name, id, this.state, stateCopy)
+    let movieEdit = stateCopy.movies.find((e)=>e.name === name)
+    console.log(movieEdit)
+    movieEdit.name = newname
+    this.setState(stateCopy)
   }
 
   editMovie(id, name) {
@@ -92,9 +99,9 @@ class Movielist extends Component {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.getMovies();
-        console.log(this.state)
+        // console.log(this.state)
       });
   }
 

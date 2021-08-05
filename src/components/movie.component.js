@@ -6,21 +6,19 @@ const Movie = (props) => {
   
     useEffect(() => {
       function test() {
-        if(props.movies.name== null){
+        if(props.movies.name == null){
           return
         } else {
           setName(props.movies.name)
           setId(props.movies.id)
         }
-        // console.log(name, props.movies);
-        // setName(props.movies.name)
       }
       test();
     });
   
     const handleChange = (e) => {
       // setName(e.target.value); go up to parent
-      console.log(name)
+      props.editName(name,e.target.value, id)
     };
   
     const handleKeyDown = (e) => {
@@ -39,7 +37,7 @@ const Movie = (props) => {
         ></input>
         <button
           onClick={() => {
-            console.log('id is', id)
+            // console.log('id is', id)
             props.deleteMovie(id);
           }}
         >
