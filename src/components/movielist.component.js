@@ -42,15 +42,23 @@ class Movielist extends Component {
         `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movie}`
       )
       .then((res) => {
+        console.log(res)
         let stateCopy = Object.assign({}, this.state);
+        // console.log(stateCopy)
+        if(res.data.results.length==0){
+          console.log('no movie found')
+          return
+        }
         let result = res.data.results[0];
+        // console.log(result)
+        
         let poster = `https://image.tmdb.org/t/p/original/${result.poster_path}`;
         let attach = stateCopy.movies.find((e) => e.name === movie);
-        // console.log(attach)
+        console.log(attach)
         attach.src = poster;
         attach.overview = res.data.results[0].overview;
         attach.release = res.data.results[0].release_date;
-        // console.log(attach, stateCopy)
+        console.log(attach, stateCopy)
         this.setState(stateCopy);
       });
   }
