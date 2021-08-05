@@ -12,7 +12,8 @@ function App() {
   return (
     <Router>
       <Mynavbar />
-      <Route path='/' exact component={Movielist} />
+      {/* <Route path='/' exact component={Movielist} /> we need this later*/}
+      <Movielist />
     </Router>
   )
 
