@@ -4,7 +4,6 @@ import { useCaretPosition } from 'react-use-caret-position';
 const Movie = (props) => {
   const [name, setName] = useState("");
   const [id, setId] = useState(props.movies.id);
-  
   const {ref:inputRef, updateCaret} = useCaretPosition();
 
   useEffect(() => {
@@ -20,7 +19,6 @@ const Movie = (props) => {
   });
 
   const handleChange = (e) => {
-    // setName(e.target.value); go up to parent
     props.editName(name, e.target.value, id);
     updateCaret();
   };
