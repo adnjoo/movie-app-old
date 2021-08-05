@@ -4,44 +4,10 @@ import axios from "axios";
 import { Container } from "react-bootstrap";
 import Poster from "./poster.component";
 import Inputfield from "./inputfield.component";
+import Movie from "./movie.component"
 
 let apiKey = "7aa9ec6612579e4bfd39288619de239c";
-let herokuURL = 'https://andrew-movie-app.herokuapp.com/'
-
-const Movie = (props) => {
-  const [value, setValue] = useState('')
-  const [name, setName] = useState(props.movies.name)
-  const [id, setId] = useState(props.movies.id)
-
-  useEffect(()=>{
-    function test () {
-      console.log(name, props.movies)
-    }
-    test()
-  })
-
-  const handleChange = (e) => {
-    setName(e.target.value)
-  }
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      console.log("enter pressed");
-      props.editMovie(id, name);
-    }
-  }
-    return (
-      <div className="mx-auto text-center" style={{ width: "100%" }}>
-        <input
-          className="text-center movieListInput"
-          onChange={handleChange}
-          value={name}
-          onKeyDown={handleKeyDown}
-        ></input>
-        <button onClick={()=>{props.deleteMovie(id)}}>x</button>
-      </div>
-    );
-}
+let herokuURL = "https://andrew-movie-app.herokuapp.com/";
 
 class Movielist extends Component {
   constructor(props) {
@@ -61,16 +27,12 @@ class Movielist extends Component {
   }
 
   getMovies() {
-    axios
-      .get("https://andrew-movie-app.herokuapp.com/")
-      .then((response) => {
-        // console.log(response.data)
-        this.setState({ movies: response.data });
-        for (let i in response.data) {
-          this.getImage(response.data[i].name);
-        }
-        // console.log(this.state);
-      })
+    axios.get("https://andrew-movie-app.herokuapp.com/").then((response) => {
+      this.setState({ movies: response.data });
+      for (let i in response.data) {
+        this.getImage(response.data[i].name);
+      }
+    });
   }
 
   getImage(movie) {
@@ -79,9 +41,7 @@ class Movielist extends Component {
         `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movie}`
       )
       .then((res) => {
-        // console.log(res.data.results);
         let stateCopy = Object.assign({}, this.state);
-        // console.log(stateCopy)
         let result = res.data.results[0];
         let poster = `https://image.tmdb.org/t/p/original/${result.poster_path}`;
         let attach = stateCopy.movies.find((e) => e.name === movie);
@@ -92,6 +52,10 @@ class Movielist extends Component {
         // console.log(attach, stateCopy)
         this.setState(stateCopy);
       });
+  }
+
+  editName(name){
+    console.log(this.state)
   }
 
   editMovie(id, name) {
@@ -113,33 +77,39 @@ class Movielist extends Component {
         movie: name,
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         this.getMovies();
-        console.log(this.state.movies)
+        console.log(this.state.movies);
       });
   }
 
-  deleteMovie(id){
-    console.log('deleting')
+  deleteMovie(id) {
+    console.log("deleting");
     axios
-    .delete(herokuURL,{
-      data:{
-        id
-      }
-    })
-    .then((res)=>{
-      console.log(res.data)
-      this.getMovies()
-    })
+      .delete(herokuURL, {
+        data: {
+          id,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        this.getMovies();
+        console.log(this.state)
+      });
   }
 
   movieList() {
     // console.log(this.state)
-    return this.state.movies.map((e) => {
-      return <Movie 
-      movies={e} 
-      editMovie={this.editMovie}
-      deleteMovie={this.deleteMovie} />;
+    return this.state.movies.map((e, i) => {
+      return (
+        <Movie
+          key={i}
+          movies={e}
+          editMovie={this.editMovie}
+          deleteMovie={this.deleteMovie}
+          editName={this.editName}
+        />
+      );
     });
   }
 
@@ -162,11 +132,11 @@ class Movielist extends Component {
               {this.posterList()}
             </div>
           </div>
-          <Inputfield addMovie={this.addMovie}/>
+          <Inputfield addMovie={this.addMovie} />
         </Container>
       </div>
     );
   }
 }
 
-export default Movielist
+export default Movielist;
