@@ -91,13 +91,14 @@ fetchMovies();
 
 //get movie poster from TMDB
 let getImage = (movie) => {
+  console.log(movie)
   axios
     .get(
       `https://api.themoviedb.org/3/search/movie?api_key=${APIkey}&query=${movie}`
     )
     .then((res) => {
       // res.data.results is an array of objects
-      console.log(res.data.results);
+      // console.log(res.data.results);
       let result = res.data.results[0];
       let poster = `https://image.tmdb.org/t/p/original/${result.poster_path}`;
 

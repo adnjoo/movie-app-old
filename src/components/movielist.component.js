@@ -5,7 +5,8 @@ import { Container } from "react-bootstrap";
 import Poster from "./poster.component";
 import Inputfield from "./inputfield.component";
 
-let APIkey = "7aa9ec6612579e4bfd39288619de239c";
+let apiKey = "7aa9ec6612579e4bfd39288619de239c";
+let herokuURL = 'https://andrew-movie-app.herokuapp.com/'
 
 class Movies extends React.Component {
   constructor(props) {
@@ -25,9 +26,6 @@ class Movies extends React.Component {
       console.log("enter pressed");
       this.props.editMovie(this.state.id, this.state.name);
     }
-  };
-  activateLasers() {
-    console.log("pew pew");
   }
   render() {
     return (
@@ -38,13 +36,13 @@ class Movies extends React.Component {
           value={this.state.name}
           onKeyDown={this.handleKeyDown}
         ></input>
-        <button onClick={this.activateLasers}>x</button>
+        <button onClick={()=>{this.props.deleteMovie(this.state.id)}}>x</button>
       </div>
     );
   }
 }
 
-export default class Movielist extends Component {
+class Movielist extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,11 +52,13 @@ export default class Movielist extends Component {
     this.editMovie = this.editMovie.bind(this);
     this.getMovies = this.getMovies.bind(this);
     this.addMovie = this.addMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
     this.getMovies();
   }
+
   getMovies() {
     axios
       .get("https://andrew-movie-app.herokuapp.com/")
@@ -78,7 +78,7 @@ export default class Movielist extends Component {
   getImage(movie) {
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${APIkey}&query=${movie}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movie}`
       )
       .then((res) => {
         // console.log(res.data.results);
@@ -99,7 +99,7 @@ export default class Movielist extends Component {
 
   editMovie(id, name) {
     axios
-      .put("https://andrew-movie-app.herokuapp.com/", {
+      .put(herokuURL, {
         id,
         name,
       })
@@ -112,19 +112,37 @@ export default class Movielist extends Component {
 
   addMovie(name) {
     axios
-      .post("https://andrew-movie-app.herokuapp.com/", {
+      .post(herokuURL, {
         movie: name,
       })
       .then((res) => {
         console.log(res);
         this.getMovies();
+        console.log(this.state.movies)
       });
+  }
+
+  deleteMovie(id){
+    console.log('deleting')
+    axios.delete(herokuURL,{
+      data:{
+        id
+      }
+    })
+    .then((res)=>{
+      console.log(res.data)
+      this.getMovies()
+    })
   }
 
   movieList() {
     // console.log(this.state)
     return this.state.movies.map((e, i) => {
-      return <Movies key={i} movies={e} editMovie={this.editMovie} />;
+      return <Movies 
+      key={i} 
+      movies={e} 
+      editMovie={this.editMovie}
+      deleteMovie={this.deleteMovie} />;
     });
   }
 
@@ -153,3 +171,5 @@ export default class Movielist extends Component {
     );
   }
 }
+
+export default Movielist
