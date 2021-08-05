@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 import { Container } from "react-bootstrap";
@@ -8,38 +8,39 @@ import Inputfield from "./inputfield.component";
 let apiKey = "7aa9ec6612579e4bfd39288619de239c";
 let herokuURL = 'https://andrew-movie-app.herokuapp.com/'
 
-class Movies extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: "",
-      name: props.movies.name,
-      id: props.movies.id,
-    };
-    this.handleChange = this.handleChange.bind(this);
+const Movie = (props) => {
+  const [value, setValue] = useState('')
+  const [name, setName] = useState(props.movies.name)
+  const [id, setId] = useState(props.movies.id)
+
+  useEffect(()=>{
+    function test () {
+      console.log(name, props.movies)
+    }
+    test()
+  })
+
+  const handleChange = (e) => {
+    setName(e.target.value)
   }
-  handleChange(e) {
-    this.setState({ name: e.target.value });
-  }
-  handleKeyDown = (e) => {
+
+  const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       console.log("enter pressed");
-      this.props.editMovie(this.state.id, this.state.name);
+      props.editMovie(id, name);
     }
   }
-  render() {
     return (
       <div className="mx-auto text-center" style={{ width: "100%" }}>
         <input
           className="text-center movieListInput"
-          onChange={this.handleChange}
-          value={this.state.name}
-          onKeyDown={this.handleKeyDown}
+          onChange={handleChange}
+          value={name}
+          onKeyDown={handleKeyDown}
         ></input>
-        <button onClick={()=>{this.props.deleteMovie(this.state.id)}}>x</button>
+        <button onClick={()=>{props.deleteMovie(id)}}>x</button>
       </div>
     );
-  }
 }
 
 class Movielist extends Component {
@@ -70,9 +71,6 @@ class Movielist extends Component {
         }
         // console.log(this.state);
       })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   getImage(movie) {
@@ -93,7 +91,6 @@ class Movielist extends Component {
         attach.release = res.data.results[0].release_date;
         // console.log(attach, stateCopy)
         this.setState(stateCopy);
-        // console.log(this.state)
       });
   }
 
@@ -124,7 +121,8 @@ class Movielist extends Component {
 
   deleteMovie(id){
     console.log('deleting')
-    axios.delete(herokuURL,{
+    axios
+    .delete(herokuURL,{
       data:{
         id
       }
@@ -137,9 +135,8 @@ class Movielist extends Component {
 
   movieList() {
     // console.log(this.state)
-    return this.state.movies.map((e, i) => {
-      return <Movies 
-      key={i} 
+    return this.state.movies.map((e) => {
+      return <Movie 
       movies={e} 
       editMovie={this.editMovie}
       deleteMovie={this.deleteMovie} />;
