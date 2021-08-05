@@ -1,4 +1,4 @@
-## readme
+## movie-app
 
 <!-- ## [Link](https://adnjoo.github.io/movie-app/) -->
 
