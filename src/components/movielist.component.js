@@ -21,6 +21,7 @@ class Movielist extends Component {
     this.addMovie = this.addMovie.bind(this);
     this.deleteMovie = this.deleteMovie.bind(this);
     this.editName = this.editName.bind(this);
+    this.activateLasers = this.activateLasers.bind(this);
   }
 
   componentDidMount() {
@@ -44,14 +45,14 @@ class Movielist extends Component {
       .then((res) => {
         console.log(res)
         let stateCopy = Object.assign({}, this.state);
-        // console.log(stateCopy)
+        //if unable to find the movie we will return the no poster image
         if(res.data.results.length==0){
-          console.log('no movie found')
+          let attach = stateCopy.movies.find((e) => e.name === movie);
+          console.log('attach is',attach)
+          attach.src= 'https://raw.githubusercontent.com/adnjoo/movie-app/main/assets/no-poster.jpeg'
           return
         }
         let result = res.data.results[0];
-        // console.log(result)
-        
         let poster = `https://image.tmdb.org/t/p/original/${result.poster_path}`;
         let attach = stateCopy.movies.find((e) => e.name === movie);
         console.log(attach)
@@ -132,6 +133,9 @@ class Movielist extends Component {
     return this.state.movies.map((e, i) => {
       return <Poster key={i} props={e} />;
     });
+  }
+  activateLasers(){
+    console.log(this.state)
   }
 
   render() {

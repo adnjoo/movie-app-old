@@ -12,6 +12,8 @@ Stack: PERN
 
 Front end - React, Bootstrap, axios
 
+Tools used: react-caret-position, hashrouter
+
 Deployment - gh-pages
 
 APIs used - [TMDB](https://www.themoviedb.org/)

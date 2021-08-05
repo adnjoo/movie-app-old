@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useCaretPosition } from 'react-use-caret-position';
 
 const Movie = (props) => {
   const [name, setName] = useState("");
   const [id, setId] = useState(props.movies.id);
+  
+  const {ref:inputRef, updateCaret} = useCaretPosition();
 
   useEffect(() => {
     function test() {
@@ -19,6 +22,7 @@ const Movie = (props) => {
   const handleChange = (e) => {
     // setName(e.target.value); go up to parent
     props.editName(name, e.target.value, id);
+    updateCaret();
   };
 
   const handleKeyDown = (e) => {
@@ -30,9 +34,10 @@ const Movie = (props) => {
   return (
     <div className="mx-auto text-center" style={{ width: "100%" }}>
       <input
+        ref={inputRef} 
         className="text-center movieListInput"
         onChange={handleChange}
-        defaultValue={name}
+        value={name}
         onKeyDown={handleKeyDown}
       ></input>
       <button
