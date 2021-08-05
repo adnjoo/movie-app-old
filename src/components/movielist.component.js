@@ -4,7 +4,7 @@ import axios from "axios";
 import { Container } from "react-bootstrap";
 import Poster from "./poster.component";
 import Inputfield from "./inputfield.component";
-import Movie from "./movie.component"
+import Movie from "./movie.component";
 
 let apiKey = "7aa9ec6612579e4bfd39288619de239c";
 let herokuURL = "https://andrew-movie-app.herokuapp.com/";
@@ -55,14 +55,14 @@ class Movielist extends Component {
       });
   }
 
-  editName(name, newname, id){
+  editName(name, newname, id) {
     // edit state but dont get movies with axios
     let stateCopy = Object.assign({}, this.state);
     // console.log(name, id, this.state, stateCopy)
-    let movieEdit = stateCopy.movies.find((e)=>e.name === name)
-    console.log(movieEdit)
-    movieEdit.name = newname
-    this.setState(stateCopy)
+    let movieEdit = stateCopy.movies.find((e) => e.name === name);
+    console.log(movieEdit);
+    movieEdit.name = newname;
+    this.setState(stateCopy);
   }
 
   editMovie(id, name) {

@@ -7,20 +7,20 @@ img {
 }
 
 .mycontainer {
-  margin:auto;
-  width:80%;
+  margin: auto;
+  width: 80%;
 }
 
 .centertext {
-  text-align: center  ;
+  text-align: center;
 }
 
 .marginauto {
-  margin:auto;
+  margin: auto;
 }
 
 .movieListInput {
-  width:40%;
+  width: 40%;
   /* min-width: 170px; */
 }
 
