@@ -4,7 +4,7 @@
 
 > This app allows helps you save your favorite movies.
 
-<a href='https://adnjoo.github.io/movie-app/'>
+<a href='https://github.com/adnjoo/movie-app-auth-frontend'>
 <img src='./v0.0.0.4.png' width='250'>
 </a><br /><br />
 
